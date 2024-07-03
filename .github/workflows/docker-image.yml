@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: build docker image
 
 on:
   workflow_dispatch:
@@ -21,4 +21,4 @@ jobs:
         path: ytsaurus
     
     - name: Build the Docker image
-      run: docker build ./ytsaurus --file ./Dockerfile --tag ghcr.io/dmi-feo/ytsaurus-python-sdk-tests-runner:${{ github.event.inputs.docker_tag }}
+      run: docker build ../ytsaurus --file ./Dockerfile --tag ghcr.io/dmi-feo/ytsaurus-python-sdk-tests-runner:${{ github.event.inputs.docker_tag }}
