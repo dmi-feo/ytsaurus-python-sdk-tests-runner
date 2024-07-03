@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      docker_tag:
+        type: string
+        description: "tag for the docker image"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+    - uses: actions/checkout@v4
+    
+    - uses: actions/checkout@v4
+      with:
+        name: ytsaurus/ytsaurus
+        path: ytsaurus
+    
+    - name: Build the Docker image
+      run: docker build ./ytsaurus --file ./Dockerfile --tag ghcr.io/dmi-feo/ytsaurus-python-sdk-tests-runner:${{ github.event.inputs.docker_tag }}
