@@ -1,5 +1,5 @@
 name: build docker image
-run_name: build docker image ${{ github.event.inputs.docker_tag }}
+run-name: build docker image ${{ github.event.inputs.docker_tag }}
 
 on:
   workflow_dispatch:
