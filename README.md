@@ -1,4 +1,4 @@
-Want to run YTSaurus Python SDK test, but don't know how? It's never been easier:
+Want to run YTSaurus Python SDK tests, but don't know how? It's never been easier:
 
 ```shell
 YT_REPO=~/repos/ytsaurus ./run_wrapper_tests test_cypress_commands.py
