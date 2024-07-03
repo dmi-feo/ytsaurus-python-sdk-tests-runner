@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
-YT_PYTHON_DIR="${YT_REPO}/yt/python"
+trap 'rm -rf \
+    ${YT_REPO}/yt/python/yt/packages/dill/ \
+    ${YT_REPO}/yt/python/yt/packages/fuse.py \
+    ${YT_REPO}/yt/python/yt/packages/requests/ \
+    ${YT_REPO}/yt/python/yt/packages/urllib3/' EXIT
 
 docker run -it -e PYTHONPATH="/source:${PYTHONPATH}" \
-    --mount type=bind,source=${YT_PYTHON_DIR}/yt,target=/source/yt \
+    --mount type=bind,source=${YT_REPO}/yt/python/yt,target=/source/yt \
     ghcr.io/dmi-feo/ytsaurus-python-sdk-tests-runner:0.1.0 \
     bash -c "cp -r /workdir/python_build/yt/packages /source/yt && pytest /source/yt/wrapper/tests/$1 ${@:2}"
-
