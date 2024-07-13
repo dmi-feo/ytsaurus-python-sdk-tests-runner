@@ -4,7 +4,7 @@ FROM ubuntu:22.04 AS test_image
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y python3 python3-pip
+RUN apt-get update && apt-get install -y python3 python3-pip && apt-get clean
 
 RUN mkdir /source
 
