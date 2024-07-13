@@ -9,6 +9,9 @@ on:
         description: "tag for the docker image"
         required: true
 
+env:
+  REGISTRY: ghcr.io
+
 jobs:
   build:
     runs-on: ubuntu-latest
