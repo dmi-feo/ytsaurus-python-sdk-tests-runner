@@ -10,6 +10,7 @@ RUN mkdir /source
 
 COPY --from=built_yt /tmp/ytsaurus_python /workdir/python_build
 COPY --from=built_yt /usr/bin/ytserver-all /workdir/yt/yt/server/all/ytserver-all
+
 COPY ./yt/yt/scripts /workdir/scripts
 
 RUN cp -r /workdir/python_build/yt_* /source
