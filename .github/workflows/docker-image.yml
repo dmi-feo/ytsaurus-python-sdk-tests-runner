@@ -7,8 +7,7 @@ on:
       docker_tag:
         type: string
         description: "tag for the docker image"
-        default: test
-  pull_request: {}  # TODO: DELETE ME
+        required: true
 
 jobs:
   build:
