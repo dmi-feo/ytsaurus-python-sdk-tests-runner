@@ -8,5 +8,5 @@ trap 'rm -rf \
 
 docker run -it -e PYTHONPATH="/source:${PYTHONPATH}" \
     --mount type=bind,source=${YT_REPO}/yt/python/yt,target=/source/yt \
-    sha256:fc7acefaa9d8109fd978c6a3df4abc521ba9bbec351330eb1c73e189524cddce \
+    ghcr.io/dmi-feo/ytsaurus-python-sdk-tests-runner:0.2.0 \
     bash -c "cp -r /workdir/python_build/yt/packages /source/yt && pytest /source/yt/wrapper/tests/$1 ${@:2}"
