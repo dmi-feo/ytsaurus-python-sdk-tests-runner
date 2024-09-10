@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -ex
+
+trap 'cd ${YT_REPO} && git clean -f -d yt/python/yt/packages > /dev/null' EXIT
+
+docker run -it -e PYTHONPATH="/source/yt/yt/python:${PYTHONPATH}" \
+    --mount type=bind,source=${YT_REPO}/,target=/source/yt \
+    ghcr.io/dmi-feo/ytsaurus-python-sdk-tests-runner:0.2.0 \
+    bash -c "cp -r /workdir/python_build/yt/packages /source/yt/yt/python/yt && $@"
